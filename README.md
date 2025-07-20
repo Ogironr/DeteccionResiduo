@@ -62,13 +62,32 @@ github/
 
 ### 📓 Archivo Principal: `Demo.ipynb`
 
-**`Demo.ipynb` es el notebook principal que centraliza todo el flujo de trabajo del proyecto.** Este archivo integra y ejecuta todos los componentes del sistema:
+**`Demo.ipynb` es el notebook principal que centraliza todo el flujo de trabajo del proyecto.** Este archivo de 784 líneas integra y automatiza el pipeline MLOps completo:
 
-- ✅ **Entrenamiento completo** del modelo YOLOv8
-- ✅ **Validación y métricas** detalladas
-- ✅ **Detección en tiempo real** con contenedores calibrados
-- ✅ **Visualizaciones** y análisis de resultados
-- ✅ **Pipeline MLOps completo** en un solo lugar
+#### 🔄 **Flujo Automatizado Completo:**
+
+**CELDA 1: Descarga y Preparación del Dataset**
+- 🔽 **Descarga automática** desde Roboflow (API integrada)
+- 📁 **Configuración automática** del archivo `data.yaml`
+- ✅ **Dataset listo** para entrenamiento sin intervención manual
+
+**CELDA 2: Preparación del Entorno**
+- 💾 **Montaje de Google Drive** automático
+- 📋 **Copia de archivos** del proyecto (`train_colab.py`, `validator.py`, `best.pt`)
+- 📦 **Instalación de dependencias** desde `requirements.txt`
+- 🔧 **Configuración del workspace** optimizada para Colab
+
+**CELDA 3: Entrenamiento del Modelo**
+- 🚀 **Entrenamiento YOLOv8** con hiperparámetros optimizados
+- 📊 **Monitoreo en tiempo real** del progreso
+- 💾 **Guardado automático** del mejor modelo
+
+**CELDA 4: Validación Completa**
+- 📈 **Validación en conjunto VAL**: mAP50-95: **61.65%**, mAP50: **80.24%**
+- 📈 **Validación en conjunto TRAIN**: mAP50-95: **72.10%**, mAP50: **92.23%**
+- 📊 **Métricas detalladas por clase** (Metal, Orgánico, PapelCartón, Plástico, Vidrio)
+- 🎯 **Análisis de rendimiento**: ~1.2ms por imagen
+- 📁 **Generación automática** de reportes visuales
 
 ### Requisitos
 - Python 3.8+
@@ -81,11 +100,26 @@ pip install -r requirements.txt
 ```
 
 ### Uso Principal
-```python
-# OPCIÓN 1: Ejecutar el notebook principal (RECOMENDADO)
-# Abrir Demo.ipynb en Jupyter/Colab y ejecutar todas las celdas
 
-# OPCIÓN 2: Ejecutar componentes individuales
+#### 🌟 **OPCIÓN 1: Notebook Completo (RECOMENDADO)**
+```bash
+# 1. Abrir Demo.ipynb en Google Colab o Jupyter
+# 2. Ejecutar las 4 celdas en secuencia:
+#    ├── CELDA 1: Descarga dataset desde Roboflow
+#    ├── CELDA 2: Prepara entorno y dependencias
+#    ├── CELDA 3: Entrena modelo YOLOv8 (20 épocas)
+#    └── CELDA 4: Valida modelo en conjuntos train/val
+# 3. ¡Obtén resultados completos automáticamente!
+```
+
+**✨ Resultados Esperados del Notebook:**
+- 📊 **Métricas VAL**: mAP50-95: 61.65%, mAP50: 80.24%
+- 📊 **Métricas TRAIN**: mAP50-95: 72.10%, mAP50: 92.23%
+- 🎯 **Velocidad**: ~1.2ms por imagen
+- 📁 **Reportes**: Matrices de confusión, curvas PR, visualizaciones
+
+#### 🔧 **OPCIÓN 2: Componentes Individuales**
+```python
 python train_colab.py    # Entrenar el modelo
 python validator.py      # Validar el modelo
 python real_recycling_detection.py  # Detección en tiempo real
