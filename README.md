@@ -35,30 +35,63 @@ Este proyecto implementa un sistema inteligente de clasificación de residuos ut
 
 ```
 github/
-├── README.md                 # Este archivo de documentación
-├── ARCHITECTURE.md           # Documentación técnica detallada
-├── TRAINING_RESULTS.md       # Resultados completos del entrenamiento
-├── requirements.txt          # Dependencias del proyecto
-├── best.pt                   # Modelo YOLOv8 entrenado (22.5 MB)
-├── train_colab.py           # Lanzador de entrenamiento para Colab
-├── validator.py             # Sistema de validación de modelos
+├── 🌟 Demo.ipynb                # 📓 ARCHIVO PRINCIPAL - Notebook completo del proyecto
+├── README.md                    # Documentación principal
+├── ARCHITECTURE.md              # Documentación técnica detallada
+├── TRAINING_RESULTS.md          # Resultados y métricas del entrenamiento
+├── best.pt                      # Modelo YOLOv8 entrenado (22.5 MB)
+├── requirements.txt             # Dependencias del proyecto
+├── train_colab.py              # Lanzador de entrenamiento para Colab
+├── validator.py                # Sistema de validación de modelos
 ├── utils/
-│   └── trainer.py           # Lógica de entrenamiento con hiperparámetros
-└── runs/
-    └── colab_trains/
-        └── og_reciclaje_finetuning_optimizado/
-            ├── weights/
-            │   ├── best.pt          # Mejor modelo entrenado
-            │   └── last.pt          # Último checkpoint
-            ├── results.csv          # Métricas de entrenamiento
-            ├── results.png          # Gráficos de rendimiento
-            ├── confusion_matrix.png # Matriz de confusión
-            ├── BoxPR_curve.png     # Curvas Precision-Recall
-            ├── val_batch*_pred.jpg # Predicciones de validación
-            └── train_batch*.jpg    # Ejemplos de entrenamiento
+│   └── trainer.py              # Motor de entrenamiento con hiperparámetros
+└── runs/colab_trains/og_reciclaje_finetuning_optimizado/
+    ├── weights/
+    │   ├── best.pt             # Mejor modelo del entrenamiento
+    │   └── last.pt             # Último checkpoint
+    ├── results.csv             # Métricas por época
+    ├── results.png             # Gráficos de rendimiento
+    ├── confusion_matrix.png    # Matriz de confusión
+    ├── *PR_curve.png           # Curvas Precision-Recall
+    ├── *F1_curve.png           # Curvas F1-Score
+    ├── val_batch*_pred.jpg     # Predicciones en validación
+    └── train_batch*.jpg        # Ejemplos de entrenamiento
 ```
 
-## 🚀 Instalación y Configuración
+## 🚀 Inicio Rápido
+
+### 📓 Archivo Principal: `Demo.ipynb`
+
+**`Demo.ipynb` es el notebook principal que centraliza todo el flujo de trabajo del proyecto.** Este archivo integra y ejecuta todos los componentes del sistema:
+
+- ✅ **Entrenamiento completo** del modelo YOLOv8
+- ✅ **Validación y métricas** detalladas
+- ✅ **Detección en tiempo real** con contenedores calibrados
+- ✅ **Visualizaciones** y análisis de resultados
+- ✅ **Pipeline MLOps completo** en un solo lugar
+
+### Requisitos
+- Python 3.8+
+- CUDA compatible GPU (recomendado)
+- Webcam o archivos de video para pruebas
+
+### Instalación
+```bash
+pip install -r requirements.txt
+```
+
+### Uso Principal
+```python
+# OPCIÓN 1: Ejecutar el notebook principal (RECOMENDADO)
+# Abrir Demo.ipynb en Jupyter/Colab y ejecutar todas las celdas
+
+# OPCIÓN 2: Ejecutar componentes individuales
+python train_colab.py    # Entrenar el modelo
+python validator.py      # Validar el modelo
+python real_recycling_detection.py  # Detección en tiempo real
+```
+
+## 🎯 Instalación y Configuración
 
 ### Requisitos del Sistema
 
